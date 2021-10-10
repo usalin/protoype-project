@@ -20,7 +20,8 @@
       "@iwy/core-data": ["libs/core-data/src/index.ts"],
       "@iwy/core-state": ["libs/core-state/src/index.ts"],
       "@iwy/material": ["libs/material/src/index.ts"],
-      "@env/*": ["apps/dashboard/src/environments/*"]
+      "@env/*": ["apps/dashboard/src/environments/*"],
+      "@iwy/ui-toolbar": ["libs/ui-toolbar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

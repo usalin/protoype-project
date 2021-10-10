@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fem-root',
+  selector: 'iwy-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -10,4 +10,9 @@ export class AppComponent {
     { path: '/', icon: 'home', title: 'home' },
     { path: '/widgets', icon: 'view_list', title: 'widgets' },
   ];
+
+  logout() {  }
+
+
+  toggleSidenav() { }
 }
