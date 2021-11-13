@@ -1,1 +1,1 @@
-export * from './lib/api-interfaces';
+export { Artist, Message } from "./lib/api-interfaces";

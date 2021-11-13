@@ -32,7 +32,7 @@ import { UiToolbarModule } from '@iwy/ui-toolbar';
     HttpClientModule,
     MaterialModule,
     RoutingModule,
-    UiToolbarModule
+    UiToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

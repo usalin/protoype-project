@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Widget } from '@iwy/api-interfaces';
-
+import { Artist } from '@iwy/api-interfaces';
+import {environment} from '@env/environment';
 
 
 @Injectable({
@@ -9,40 +9,32 @@ import { Widget } from '@iwy/api-interfaces';
 })
 export class WidgetsService {
   model = 'widgets';
-  apiEndpoint: string = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
-
   all() {
-    return this.http.get<Widget[]>(this.getUrl());
+    return this.http.get<Artist[]>(this.getUrl());
   }
-
 
   find(id: string) {
-    return this.http.get<Widget>(this.getUrlWithId(id));
+    return this.http.get<Artist>(this.getUrlWithId(id));
   }
 
-
-  create(widget: Widget) {
+  create(widget: Artist) {
     return this.http.post(this.getUrl(), widget);
   }
 
-
-  update(widget: Widget) {
+  update(widget: Artist) {
     return this.http.put(this.getUrlWithId(widget.id), widget);
   }
 
-
-  delete(widget: Widget) {
+  delete(widget: Artist) {
     return this.http.delete(this.getUrlWithId(widget.id));
   }
 
-
   private getUrl() {
-    return `${this.apiEndpoint}${this.model}`;
+    return `${environment.apiEndpoint}${this.model}`;
   }
-
 
   private getUrlWithId(id) {
     return `${this.getUrl()}/${id}`;

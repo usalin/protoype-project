@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Widget } from '@iwy/api-interfaces';
+import { Artist } from '@iwy/api-interfaces';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Widget } from '@iwy/api-interfaces';
   styleUrls: ['./widgets-list.component.scss']
 })
 export class WidgetsListComponent {
-  @Input() widgets: Widget[];
+  @Input() widgets: Artist[];
   @Input() readonly = false;
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();

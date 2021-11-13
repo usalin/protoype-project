@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Widget } from '@iwy/api-interfaces';
+import { Artist } from '@iwy/api-interfaces';
 
 @Component({
   selector: 'fem-home',
@@ -7,9 +7,9 @@ import { Widget } from '@iwy/api-interfaces';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  widgets: Widget[] = [
-    { id: '1', title: 'Widget 01', description: 'Pending' },
-    { id: '2', title: 'Widget 02', description: 'Pending' },
-    { id: '3', title: 'Widget 03', description: 'Pending' },
+  widgets: Artist[] = [
+    { id: '1', artistName: 'Widget 01', description: 'Pending' },
+    { id: '2', artistName: 'Widget 02', description: 'Pending' },
+    { id: '3', artistName: 'Widget 03', description: 'Pending' },
   ];
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Widget } from '@iwy/api-interfaces';
+import { Artist } from '@iwy/api-interfaces';
 
 
 @Component({
@@ -8,10 +8,10 @@ import { Widget } from '@iwy/api-interfaces';
   styleUrls: ['./widgets-details.component.scss']
 })
 export class WidgetDetailsComponent {
-  currentWidget: Widget;
+  currentWidget: Artist;
   originalTitle = '';
-  @Input() set widget(value: Widget) {
-    if(value) this.originalTitle = value.title;
+  @Input() set widget(value: Artist) {
+    if(value) this.originalTitle = value.artistName;
     this.currentWidget = {...value};
   };
   @Output() saved = new EventEmitter;

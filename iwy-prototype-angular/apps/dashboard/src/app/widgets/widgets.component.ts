@@ -1,20 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Widget } from '@iwy/api-interfaces';
+import { Artist } from '@iwy/api-interfaces';
+import { WidgetsService } from '@iwy/core-data';
+import { Observable } from 'rxjs';
 
 
-const mockWidgets: Widget[] = [
-  { id: '1', title: 'Widget 01', description: 'Pending' },
-  { id: '2', title: 'Widget 02', description: 'Pending' },
-  { id: '3', title: 'Widget 03', description: 'Pending' },
-];
-
-
-const emptyWidget: Widget = {
+const emptyWidget: Artist = {
   id: null,
-  title: '',
+  artistName: '',
   description: '',
 }
-
 
 @Component({
   selector: 'iwy-widgets',
@@ -22,67 +16,49 @@ const emptyWidget: Widget = {
   styleUrls: ['./widgets.component.scss']
 })
 export class WidgetsComponent implements OnInit {
-  widgets: Widget[];
-  selectedWidget: Widget;
+  widgets$: Observable<Artist[]>;
+  selectedWidget: Artist;
 
+  constructor(private widgetsService: WidgetsService) {}
 
   ngOnInit(): void {
     this.reset();
   }
-
 
   reset() {
     this.loadWidgets();
     this.selectWidget(null);
   }
 
-
   resetForm() {
     this.selectedWidget = emptyWidget;
   }
 
-
-  selectWidget(widget: Widget) {
+  selectWidget(widget: Artist) {
     this.selectedWidget = widget;
   }
 
-
   loadWidgets() {
-    this.widgets = mockWidgets;
+    this.widgets$ = this.widgetsService.all();
   }
 
-
-  saveWidget(widget: Widget) {
-    if(widget.id) {
+  saveWidget(widget: Artist) {
+    if (widget.id) {
       this.updateWidget(widget);
     } else {
       this.createWidget(widget);
     }
   }
 
-
-  createWidget(widget: Widget) {
-    const newWidget = Object.assign({}, widget, { id: this.getRandomID()})
-    this.widgets = [...this.widgets, newWidget];
-    this.resetForm();
+  createWidget(widget: Artist) {
+    this.widgetsService.create(widget).subscribe((result) => this.reset());
   }
 
-
-  updateWidget(widget: Widget) {
-    this.widgets = this.widgets.map(w => {
-      return (widget.id === w.id) ? widget : w;
-    });
-    this.resetForm();
+  updateWidget(widget: Artist) {
+    this.widgetsService.update(widget).subscribe((result) => this.reset());
   }
 
-
-  deleteWidget(widget: Widget) {
-    this.widgets = this.widgets.filter(w => widget.id !== w.id);
-    this.resetForm();
-  }
-
-
-  private getRandomID() {
-    return Math.random().toString(36).substring(7);
+  deleteWidget(widget: Artist) {
+    this.widgetsService.delete(widget).subscribe((result) => this.reset());
   }
 }
