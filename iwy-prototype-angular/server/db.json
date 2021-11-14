@@ -2,17 +2,17 @@
     "widgets": [
       {
         "id": "1",
-        "title": "Remote Widget 01",
+        "artistName": "Remote Widget 01",
         "description": "Pending..."
       },
       {
         "id": "2",
-        "title": "Remote Widget 02",
+        "artistName": "Remote Widget 02",
         "description": "Pending..."
       },
       {
         "id": "3",
-        "title": "Remote Widget 03",
+        "artistName": "Remote Widget 03",
         "description": "Pending..."
       }
     ]

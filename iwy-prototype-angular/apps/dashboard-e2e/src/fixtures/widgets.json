@@ -1,17 +1,17 @@
 [
-    {
-      "id": "0",
-      "artistName": "Cypress Widget 00",
-      "description": "Pending"
-    },
-    {
-      "id": "1",
-      "artistName": "Cypress Widget 01",
-      "description": "Pending"
-    },
-    {
-      "id": "2",
-      "artistName": "Cypress Widget 02",
-      "description": "Pending"
-    }
-  ]
+  {
+    "id": "0",
+    "artistName": "Cypress Widget 00",
+    "description": "Pending"
+  },
+  {
+    "id": "1",
+    "artistName": "Cypress Widget 01",
+    "description": "Pending"
+  },
+  {
+    "id": "2",
+    "artistName": "Cypress Widget 02",
+    "description": "Pending"
+  }
+]

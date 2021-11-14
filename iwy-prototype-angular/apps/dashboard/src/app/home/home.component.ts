@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Artist } from '@iwy/api-interfaces';
 
 @Component({
-  selector: 'fem-home',
+  selector: 'iwy-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

@@ -70,8 +70,8 @@ export const deleteWidget = (model, widget) => {
 };
 
 
-export const checkWidgetDetailsTitle = (artistName) => {
-  getWidgetDetailsTitle().should('contain.text', artistName);
+export const checkWidgetDetailsTitle = (title) => {
+  getWidgetDetailsTitle().should('contain.text', title);
 };
 
 

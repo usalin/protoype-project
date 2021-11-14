@@ -3,7 +3,7 @@ import { Artist } from '@iwy/api-interfaces';
 
 
 @Component({
-  selector: 'fem-widgets-list',
+  selector: 'iwy-widgets-list',
   templateUrl: './widgets-list.component.html',
   styleUrls: ['./widgets-list.component.scss']
 })
