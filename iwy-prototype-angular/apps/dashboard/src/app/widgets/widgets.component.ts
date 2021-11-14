@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Artist } from '@iwy/api-interfaces';
 import { WidgetsService } from '@iwy/core-data';
+import { WidgetsFacade } from '@iwy/core-state';
 import { Observable } from 'rxjs';
 
 
@@ -16,10 +17,11 @@ const emptyWidget: Artist = {
   styleUrls: ['./widgets.component.scss']
 })
 export class WidgetsComponent implements OnInit {
-  widgets$: Observable<Artist[]>;
-  selectedWidget: Artist;
+  widgets$: Observable<Artist[]> = this.widgetsFacade.allWidgets$;
+  selectedWidget$: Observable<Artist> = this.widgetsFacade.selectedWidgets$;
 
-  constructor(private widgetsService: WidgetsService) {}
+  constructor(private widgetsFacade: WidgetsFacade) {}
+
 
   ngOnInit(): void {
     this.reset();
@@ -31,15 +33,15 @@ export class WidgetsComponent implements OnInit {
   }
 
   resetForm() {
-    this.selectedWidget = emptyWidget;
+    this.selectWidget(emptyWidget);
   }
 
   selectWidget(widget: Artist) {
-    this.selectedWidget = widget;
+    this.widgetsFacade.selectWidget(widget);
   }
 
   loadWidgets() {
-    this.widgets$ = this.widgetsService.all();
+    this.widgetsFacade.loadWidgets();
   }
 
   saveWidget(widget: Artist) {
@@ -51,14 +53,14 @@ export class WidgetsComponent implements OnInit {
   }
 
   createWidget(widget: Artist) {
-    this.widgetsService.create(widget).subscribe((result) => this.reset());
+    // this.widgetsService.create(widget).subscribe((result) => this.reset());
   }
 
   updateWidget(widget: Artist) {
-    this.widgetsService.update(widget).subscribe((result) => this.reset());
+    // this.widgetsService.update(widget).subscribe((result) => this.reset());
   }
 
   deleteWidget(widget: Artist) {
-    this.widgetsService.delete(widget).subscribe((result) => this.reset());
+    // this.widgetsService.delete(widget).subscribe((result) => this.reset());
   }
 }
