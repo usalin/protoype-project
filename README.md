@@ -8,6 +8,6 @@ This is a simple project I have started to experiment with technologies I have b
 * [Nest.js](https://nestjs.org/)
 * [Angular](https://angular.io/)
 * [NX](https://nx.dev/)
-* [Cypress] (https://www.cypress.io/)
+* [Cypress](https://www.cypress.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
